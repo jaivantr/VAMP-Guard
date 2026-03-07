@@ -92,6 +92,8 @@ Alert System → Responsible Individual
 - [ ] NILMTK integration
 - [ ] Vampire load detection model
 - [ ] Unauthorized usage detection (time-aware)
+- [ ] Admin event override mode
+- [ ] Scheduled exception windows
 - [ ] Alert system implementation
 - [ ] Web dashboard (Flask)
 
