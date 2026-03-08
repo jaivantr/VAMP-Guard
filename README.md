@@ -105,6 +105,31 @@ Alert System → Responsible Individual
 
 ---
 
+## Known Limitations and Solutions
+
+### Plug Detection in Powered-Off Sockets
+
+**Limitation**
+When the system autonomously cuts power to a socket, NILM becomes blind to any device subsequently plugged in — no current flows, so no signature can be detected.
+
+**Solution**
+A low-cost capacitive sensor IC (e.g., TTP223) integrated directly inside the switch box detects plug insertion through capacitive change at the socket terminals, independent of current flow. Upon detection, the system briefly restores power, NILM classifies the device, and autonomously decides whether to allow or cut power again.
+
+**Why this works**
+- Capacitive sensor operates passively without current flow
+- Bare IC footprint is negligible — easily fits on a custom PCB inside standard Indian switch boxes
+- Cost per socket is approximately ₹20–50, justified in high-value lab environments
+- Maintains full system awareness and control integrity
+
+**Phased Deployment Note**
+Initial deployment targets computer labs and AC labs where:
+- Device loads are high value and easily measurable
+- Permitted hours are clearly defined
+- Sensor cost is justified by energy savings per socket
+- Clean labeled data is available for model fine-tuning
+
+---
+
 ## Future Scalability
 
 - **Smart Meter Integration** — Embedding TinyML directly into smart electric meters for real-time autonomous socket control
@@ -161,6 +186,7 @@ This is not merely a monitoring tool — it is a **self-evolving energy governan
 1st Year ECE Student
 Rajalakshmi Institute of Technology, Chennai
 *Project conceptualized and developed independently*
+*If you find this work useful, please star the repository and cite appropriately.*
 
 ---
 
